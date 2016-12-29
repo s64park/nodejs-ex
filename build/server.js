@@ -26,9 +26,9 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT,
     devPort = 4000,
-    ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+    ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP,
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
 
