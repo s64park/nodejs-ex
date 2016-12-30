@@ -43,8 +43,8 @@ class EmployeePreview extends Component {
             <div>
                 <Col lg={4} className="preview-box">
                     <Row>
-                        <Col md={10}><h2>{`${firstname} ${lastname}`}</h2></Col>
-                        <Col md={2}><Button style={{width: "100%"}} type="button" onClick={this.handleRemoveEmployee}>X</Button></Col>
+                        <Col xs={10}><h2>{`${firstname} ${lastname}`}</h2></Col>
+                        <Col xs={2}><Button style={{width: "100%"}} type="button" onClick={this.handleRemoveEmployee}>X</Button></Col>
                     </Row>
                     <p>Position: {title}</p>
                     <p>Department: {department}</p>

@@ -8,20 +8,6 @@ import NewEmployeeForm from '../components/newEmployeeForm';
 import { getEmployees, addEmployee } from '../actions/employee';
 import { connect } from 'react-redux';
 
-
-const sampleEmployeeList = [
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 1 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 2 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 3 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 4 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 5 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 6 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 7 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 8 },
-    {name: 'Sanghyun Park', job: 'FullStack Developer', department: 'IT', id: 9 }
-];
-
-
 class Admin extends Component {
     constructor(props) {
         super(props);
