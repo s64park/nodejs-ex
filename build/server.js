@@ -26,9 +26,9 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT,
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     devPort = 4000,
-    ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP,
+    ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
 
@@ -65,9 +65,11 @@ db.on('error', function (error) {
     console.log("Error loading the db - " + error);
 });
 db.once('open', function () {
-    console.log('Connected to mongodb server');
+    console.log('Connected to mongodb server: ' + mongoURL);
 });
-db.on('disconnected', connect);
+db.on('disconnected', function () {
+    console.log("MongoDB is not connected");
+});
 
 app.use('/', express.static(_path2.default.join(__dirname, './../public')));
 app.use('/api', _routes2.default);

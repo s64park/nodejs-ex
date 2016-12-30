@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     devPort = 4000,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
 
@@ -52,8 +52,8 @@ var connect = function () {
 connect();
 const db = mongoose.connection;
 db.on('error', function(error) { console.log("Error loading the db - "+ error); });
-db.once('open', () => { console.log('Connected to mongodb server'); });
-db.on('disconnected', connect);
+db.once('open', () => { console.log('Connected to mongodb server: ' + mongoURL); });
+db.on('disconnected', function() { console.log("MongoDB is not connected"); });
 
 app.use('/', express.static(path.join(__dirname, './../public')));
 app.use('/api', api);
