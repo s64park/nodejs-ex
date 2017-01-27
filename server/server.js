@@ -33,7 +33,7 @@ app.use(function(err, req, res) {
 });
 
 app.listen(port, function() {
-    console.log('Server running on http://%s:%s', port);
+    console.log('Server running on port %s', port);
 });
 
 if(process.env.NODE_ENV == 'development') {

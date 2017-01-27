@@ -1,7 +1,7 @@
 {
   "name": "employee-performance-review",
   "version": "0.0.1",
-  "description": "Node.js sample app for OpenShift 3",
+  "description": "Employee-performance-review-app",
   "main": "server.js",
   "dependencies": {
     "chai": "^3.5.0",

@@ -18,15 +18,8 @@ var _jwtSimple = require('jwt-simple');
 
 var _jwtSimple2 = _interopRequireDefault(_jwtSimple);
 
-var _config = require('../config');
-
-var _config2 = _interopRequireDefault(_config);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Created by Terry on 2016-12-20.
- */
 function adminAuth(req, res, next) {
     // check header or url parameters or post parameters for token
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -34,7 +27,7 @@ function adminAuth(req, res, next) {
     if (token) {
         // decode token and verify
         try {
-            decode = _jwtSimple2.default.decode(token, _config2.default.secret);
+            decode = _jwtSimple2.default.decode(token, process.env.JWT_SECRET);
         } catch (e) {
             return res.status(401).send({ error: "Failed to authenticate token." });
         }
@@ -57,8 +50,9 @@ function adminAuth(req, res, next) {
             error: "No token provided"
         });
     }
-}
-
+} /**
+   * Created by Terry on 2016-12-20.
+   */
 function employeeAuth(req, res, next) {
     // check header or url parameters or post parameters for token
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -66,7 +60,7 @@ function employeeAuth(req, res, next) {
     if (token) {
         // decode token and verify
         try {
-            decode = _jwtSimple2.default.decode(token, _config2.default.secret);
+            decode = _jwtSimple2.default.decode(token, process.env.JWT_SECRET);
         } catch (e) {
             return res.status(401).send({ error: "Failed to authenticate token." });
         }

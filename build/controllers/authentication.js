@@ -12,17 +12,13 @@ var _admin = require('../models/admin');
 
 var _admin2 = _interopRequireDefault(_admin);
 
-var _config = require('../config');
-
-var _config2 = _interopRequireDefault(_config);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function tokenForUser(user) {
     var date = new Date();
     date.setHours(date.getHours() + 1);
     var timestamp = date.getTime();
-    return _jwtSimple2.default.encode({ sub: user._id, iat: timestamp }, _config2.default.secret);
+    return _jwtSimple2.default.encode({ sub: user._id, iat: timestamp }, process.env.JWT_SECRET);
 }
 
 exports.signin = function (req, res, next) {
