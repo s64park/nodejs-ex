@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-ex",
+  "name": "employee-performance-review",
   "version": "0.0.1",
   "description": "Node.js sample app for OpenShift 3",
   "main": "server.js",
@@ -19,9 +19,6 @@
     "cookie-parser": "~1.4.3",
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.6.7",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1",
-    "passport-local": "^1.0.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",
@@ -29,13 +26,15 @@
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
     "redux-form": "^6.2.1",
-    "redux-thunk": "^2.1.0",
+    "redux-thunk": "^2.1.0"
+
+  },
+  "devDependencies": {
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
   "engine": {
-    "node": "*",
-    "npm": "*"
+    "node": "6.9.2"
   },
   "scripts": {
     "clean": "rm -rf build public/bundle.js",
@@ -48,10 +47,6 @@
     "type": "git",
     "url": "http://github.com/s64park/nodejs-ex.git"
   },
-  "author": "Steve Speicher <sspeiche@gmail.com>",
-  "license": "CC-BY-1.0",
-  "bugs": {
-    "url": "http://github.com/openshift/nodejs-ex/issues"
-  },
-  "homepage": "http://github.com/openshift/nodejs-ex"
+  "author": "Dannay Park <sanghyun64.park@gmail.com>",
+  "license": "ISC"
 }

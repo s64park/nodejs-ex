@@ -4,7 +4,6 @@
 import Admin from '../models/admin';
 import Employee from '../models/employee';
 import jwt from 'jwt-simple';
-import config from '../config';
 
 export function adminAuth(req, res, next) {
     // check header or url parameters or post parameters for token
@@ -13,7 +12,7 @@ export function adminAuth(req, res, next) {
     if(token) {
        // decode token and verify
         try {
-            decode = jwt.decode(token, config.secret);
+            decode = jwt.decode(token, process.env.JWT_SECRET);
         } catch(e) {
             return res.status(401).send({ error: "Failed to authenticate token."});
         }
@@ -42,7 +41,7 @@ export function employeeAuth(req, res, next) {
     if(token) {
         // decode token and verify
         try {
-            decode = jwt.decode(token, config.secret);
+            decode = jwt.decode(token, process.env.JWT_SECRET);
         } catch(e) {
             return res.status(401).send({ error: "Failed to authenticate token."});
         }

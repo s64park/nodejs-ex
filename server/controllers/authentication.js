@@ -1,13 +1,12 @@
 import jwt from 'jwt-simple';
 import Employee from '../models/employee';
 import Admin from '../models/admin';
-import config from '../config';
 
 function tokenForUser(user) {
     let date = new Date();
     date.setHours(date.getHours() + 1);
     const timestamp = date.getTime();
-    return jwt.encode({ sub: user._id, iat: timestamp }, config.secret);
+    return jwt.encode({ sub: user._id, iat: timestamp }, process.env.JWT_SECRET);
 }
 
 exports.signin = function(req, res, next) {

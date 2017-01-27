@@ -25,7 +25,7 @@ module.exports = {
         historyApiFallback: true,
         contentBase: './public',
         proxy: {
-            "**": "http://localhost:8080"
+            "**": "http://localhost:3000"
         },
         watchOptions: {
             aggregateTimeout: 300,

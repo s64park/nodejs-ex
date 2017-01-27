@@ -4,5 +4,5 @@
 import React from 'react';
 
 export default () => {
-    return <div>Welcome to Paytm</div>;
+    return <div>Welcome to GymInst</div>;
 }
